@@ -1,4 +1,7 @@
 import React from "react";
+import Link from "next/link";
+import {PiCaretUpBold} from "react-icons/pi"
+import {FiGlobe} from "react-icons/fi";
 
 export default function Footer() {
   const links = [
@@ -9,19 +12,29 @@ export default function Footer() {
     "destinations",
   ];
 
-  return <div className="px-20 border-t-gray-200 py-4 
+  return (<div className="px-20 border-t-gray-200 py-4 
   flex justify-between w-full text-sm z-50 
   bg-white items-center">
   <ul className="flex gap-3 font-normal">
-    <li>&copy;{new Date().getFullYear()} AirBnb, Inc
-      {
-        links.map((link)=>
-        (<li key> <link>{link.charAt(0)
-          .toUpperCase() + link.slice(1).toLowerCase()}
-          </link></li>)
-        )
-      }
-    </li>
+    <li>&copy;{new Date().getFullYear()} AirBnb, Inc</li>
+      {links.map((link)=>(
+        <li key={link}>
+           <Link href="#" className="capitalize">
+
+            {/* {link.charAt(0).toUpperCase() + link.slice(1).toLowerCase()} */}
+            {link}
+           
+          </Link>
+          </li>
+          ))}
   </ul>
-  </div>;
+  <ul className="flex gap-4 font-medium">
+        <li className="flex items-center gap-2 cursor-pointer">
+          <FiGlobe/> English (EN)
+        </li>
+        <li className="cursor-pointer">$ USD</li>
+        <li className="flex items-center gap-2 cursor-pointer">Support & resources<PiCaretUpBold/></li>
+  </ul>
+  </div>
+  );
 }

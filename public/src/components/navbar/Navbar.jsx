@@ -1,11 +1,34 @@
-import React from "react";
+"use client";
+
 import AirBnbLogo from "../../svg/airbnb-logo"
 import Image from "next/image"
+import React, { useState } from "react";
 import {FiGlobe} from "react-icons/fi";
 import {RxHamburgerMenu} from "react-icons/rx"
+import ContextMenu from "../common/ContextMenu";
 
 
 const Navbar = () => {
+const [isContextMenuVisible, setIsContextMenuVisible] = useState(false);
+const contextMenuOptions = [{
+  name: "Login",
+  callBack:()=>{
+    setIsContextMenuVisible(false)
+  },
+  name: "Signup",
+  callBack:()=>{
+    setIsContextMenuVisible(false)
+  },
+  name: "Airb your home",
+  callBack:()=>{
+    setIsContextMenuVisible(false)
+  },
+  name: "Help",
+  callBack:()=>{
+    setIsContextMenuVisible(false)
+  }
+}]
+
   return (<header className="w-full flex flex-col 
   justify-center transition-all duration-300 h-20 border-b border-b-gray-200d">
     <div className="flex items-center justify-between px-20">
@@ -25,7 +48,7 @@ const Navbar = () => {
           </li>
           <li className="flex cursor-pointer items-center 
           gap-2 border border-gray-300 py-2 px-3 rounded-full hover:shadow-xl 
-          transition-all duration-500">
+          transition-all duration-500" onClick={()=>setIsContextMenuVisible(true)}>
             <RxHamburgerMenu/>
             <span>
               <Image src="/empty-profile.png" alt="profile"
@@ -35,6 +58,15 @@ const Navbar = () => {
         </ul>
       </div>
     </div>
+    {
+      isContextMenuVisible && <ContextMenu contextMenu={isContextMenuVisible} setContextMenu={setIsContextMenuVisible}
+        cordinates = {{
+          x: window.innerWidth - 250,
+          y: 70,
+        }}
+        options= {contextMenuOptions}
+      />
+    }
   </header>
   );
 };
