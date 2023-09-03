@@ -32,7 +32,7 @@ export class AuthResolver {
 
   @Query(() => UserInfo)
   @common.UseGuards(GqlDefaultAuthGuard, gqlACGuard.GqlACGuard)
-  async userInfo(@UserData() entityInfo: UserInfo): Promise<UserInfo> {
-    return entityInfo;
+  async userInfo(@UserData() userInfo: UserInfo): Promise<UserInfo> {
+    return userInfo;
   }
 }

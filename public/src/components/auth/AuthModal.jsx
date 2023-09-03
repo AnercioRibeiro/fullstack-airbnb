@@ -4,7 +4,7 @@ import React , { useState } from "react";
 import {IoMdClose} from "react-icons/io"
 import FormInput from "../common/FormInput";
 import { useAppStore } from "../../store/store";
-import { checkUser } from "../../lib/auth";
+import { checkUser, signup } from "../../lib/auth";
 
 const AuthModal = () => {
 
@@ -28,6 +28,10 @@ const AuthModal = () => {
 
   const handleSignup = async () => {
     
+    if (email && password && firstName && lastName) {
+      const data = await signup(email, password, firstName, lastName);
+      setAuthModal();
+    }
   }
 
   return  (

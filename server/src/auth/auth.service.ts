@@ -51,10 +51,12 @@ export class AuthService {
 
 
   async signup(credentials: SignupCredentials): Promise<UserInfo>{
+    debugger
     //Extrair o username e a password do request body
     const {username, password, firstName, lastName} = credentials;
     //Here we attempt to create a new user
     const user = await this.userService.create({
+      
       data: {
         username,
         password,
@@ -63,6 +65,7 @@ export class AuthService {
         roles: ["user"],
       },
     });
+    console.log(user)
 //se der erro na criação do novo user
 if (!user) {
   throw new UnauthorizedException("Não foi possível criar o novo utilizador");

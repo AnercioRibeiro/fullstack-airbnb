@@ -22,12 +22,13 @@ export const me = async () => {
   };
 
   export const signup = async (username, password) => {
+    debugger
     const result = (
       await post(createUrl("/api/signup"), { username, password }).catch(
         () => null
       )
     )?.data;
-  
+  console.log(result);
     if (!result) {
       return alert("Could not sign up");
     }
@@ -36,6 +37,7 @@ export const me = async () => {
   };
 
   export const checkUser = async (email) => {
+    debugger
     const result = await post(createUrl("/api/check-user"),{email}).catch(
         () => null
         )?.data;
