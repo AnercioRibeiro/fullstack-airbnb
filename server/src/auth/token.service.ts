@@ -4,4 +4,12 @@ import { ITokenService } from "./ITokenService";
 //@ts-ignore
 import { TokenServiceBase } from "./base/token.service.base";
 
-export class TokenService extends TokenServiceBase implements ITokenService {}
+export class TokenService extends TokenServiceBase implements ITokenService {
+    /**
+    *@param bearer
+    *@returns username apartir do jwt token
+     */
+    decodeToken(bearer: string): string{
+        return this.jwtService.verify(bearer).username;
+    }
+}
