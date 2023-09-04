@@ -18,6 +18,7 @@ const AuthModal = () => {
 
   const verifyEmail = async () => {
     const data = await checkUser(email);
+    console.log({data});
     if (!data) setUserFound(false);
     else setUserFound(true);
   };
@@ -25,6 +26,9 @@ const AuthModal = () => {
   const handleLogin = async () => {
     if(email && password){
       const data = await login(email, password);
+      setAuthModal();
+      setUserInfo(data);
+      setIsLoggedIn(true);
     }
   };
 

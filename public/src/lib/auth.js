@@ -1,3 +1,4 @@
+import { FiCloudLightning } from "react-icons/fi";
 import { createUrl, get, isStoredJwt, post, setStoredJwt } from "./http";
 
 export const me = async () => {
@@ -40,8 +41,8 @@ export const me = async () => {
     
     const result = await post(createUrl("/api/check-user"),{email}).catch(
         () => null
-        )?.data;
-
+        )
+        console.log(result);
         if (!result) return false;
         return true;
     
