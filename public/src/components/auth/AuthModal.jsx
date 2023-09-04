@@ -4,11 +4,11 @@ import React , { useState } from "react";
 import {IoMdClose} from "react-icons/io"
 import FormInput from "../common/FormInput";
 import { useAppStore } from "../../store/store";
-import { checkUser, signup } from "../../lib/auth";
+import { checkUser, login, signup } from "../../lib/auth";
 
 const AuthModal = () => {
 
-  const {setAuthModal} = useAppStore();
+  const {setAuthModal, setIsLoggedIn, setUserInfo} = useAppStore();
 
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
@@ -23,14 +23,18 @@ const AuthModal = () => {
   };
 
   const handleLogin = async () => {
-    
-  }
+    if(email && password){
+      const data = await login(email, password);
+    }
+  };
 
   const handleSignup = async () => {
     
     if (email && password && firstName && lastName) {
       const data = await signup(email, password, firstName, lastName);
       setAuthModal();
+      setUserInfo(data);
+      setIsLoggedIn(true);
     }
   }
 

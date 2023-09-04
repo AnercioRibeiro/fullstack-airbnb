@@ -27,7 +27,7 @@ export class AuthController {
   }
   @Post("signup")
   async signup(@Body() body: SignupCredentials): Promise<UserInfo>{
-    debugger
+    
     return this.authService.signup(body);
   }
 }

@@ -51,7 +51,7 @@ export class AuthService {
 
 
   async signup(credentials: SignupCredentials): Promise<UserInfo>{
-    debugger
+
     //Extrair o username e a password do request body
     const {username, password, firstName, lastName} = credentials;
     //Here we attempt to create a new user
@@ -109,6 +109,7 @@ return {
   }
 
 async checkUser(email: string){
+  
   const userStatus = await this.userService.findOne({
     where: { username: email },
     select: { username: true, firstName: true, lastName: true },

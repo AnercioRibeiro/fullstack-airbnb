@@ -39,7 +39,7 @@ export class UserServiceBase {
   async create<T extends Prisma.UserCreateArgs>(
     args: Prisma.SelectSubset<T, Prisma.UserCreateArgs>
   ): Promise<User> {
-    debugger
+    
     return this.prisma.user.create<T>({
       ...args,
 

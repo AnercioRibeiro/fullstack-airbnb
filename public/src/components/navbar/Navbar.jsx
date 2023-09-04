@@ -11,7 +11,7 @@ import { useAppStore } from "../../store/store";
 
 const Navbar = () => {
 
-  const {setAuthModal} = useAppStore();
+  const {setAuthModal, userInfo} = useAppStore();
 
 const [isContextMenuVisibile, setIsContextMenuVisibile] = useState(false);
 const contextMenuOptions = [
@@ -67,16 +67,26 @@ const contextMenuOptions = [
           gap-2 border border-gray-300 py-2 px-3 rounded-full hover:shadow-xl 
           transition-all duration-500" onClick={()=>setIsContextMenuVisibile(true)}>
             <RxHamburgerMenu/>
+            {
+              userInfo ? 
+              (
+                <span className="flex jsutify-center items-center
+                 bg-black text-white h-7 w-7 text-sm rounded-full">
+                  {userInfo?.firstName?.split("").shift().toUpperCase()}
+                </span>
+              ) : (
+            
             <span>
               <Image src="/empty-profile.png" alt="profile"
                           height={10} width={30} />
             </span>
+            )}
           </li>
         </ul>
       </div>
     </div>
     {
-      isContextMenuVisibile && <ContextMenu 
+      isContextMenuVisibile && (<ContextMenu 
       contextMenu={isContextMenuVisibile} 
       setContextMenu={setIsContextMenuVisibile}
       cordinates={{
@@ -85,7 +95,7 @@ const contextMenuOptions = [
       }}
       options={contextMenuOptions}
       />
-      }
+      )}
   </header>
   );
 };

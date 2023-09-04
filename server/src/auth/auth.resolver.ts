@@ -19,6 +19,7 @@ export class AuthResolver {
 
   @Mutation(() => UserInfo)
   async signup(@Args() args: SignupArgs): Promise<UserInfo>{
+
     return this.authService.signup(args.credentials);
   }
   @Query(() => User)

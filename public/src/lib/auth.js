@@ -15,29 +15,29 @@ export const me = async () => {
     )?.data;
   
     if (!result) {
-      return alert("Could not login");
+      return alert("Nao foi possível fazer o login");
     }
     setStoredJwt(result.accessToken);
     return me();
   };
 
-  export const signup = async (username, password) => {
+  export const signup = async (username, password, lastName, firstName) => {
     debugger
     const result = (
-      await post(createUrl("/api/signup"), { username, password }).catch(
+      await post(createUrl("/api/signup"), { username, password, lastName, firstName }).catch(
         () => null
       )
     )?.data;
   console.log(result);
     if (!result) {
-      return alert("Could not sign up");
+      return alert("Não foi possível fazer o registo");
     }
     setStoredJwt(result.accessToken);
     return me();
   };
 
   export const checkUser = async (email) => {
-    debugger
+    
     const result = await post(createUrl("/api/check-user"),{email}).catch(
         () => null
         )?.data;
