@@ -16,7 +16,7 @@ const Navbar = () => {
 const [isContextMenuVisibile, setIsContextMenuVisibile] = useState(false);
 const contextMenuOptions = [
   {
-  name: "Login",
+  name: "Entrar",
   callBack:() => {
     setAuthModal();
     setIsContextMenuVisibile(false);
@@ -24,20 +24,20 @@ const contextMenuOptions = [
   },
 },
 {
-  name: "Signup",
+  name: "Registar-se",
   callBack:() => {
     setAuthModal();
     setIsContextMenuVisibile(false);
   },
 },
 {
-  name: "Airb your home",
+  name: "Airbnb, a sua casa fora de casa",
   callBack:() => {
     setIsContextMenuVisibile(false);
   },
 },
 {
-  name: "Help",
+  name: "Ajuda",
   callBack:() => {
     setIsContextMenuVisibile(false);
   },
@@ -48,44 +48,44 @@ const contextMenuOptions = [
 const authenticatedContextMenuOptions = [
   {
     name:"Mensagens",
-    clalBack:() =>{
+    callBack:() =>{
       setIsContextMenuVisibile(false);
     },
   },
   {
     name:"Notificações",
-    clalBack:() =>{
+    callBack:() =>{
       setIsContextMenuVisibile(false);
     },
   },
   {
     name:"Viagens",
-    clalBack:() =>{
+    callBack:() =>{
       setIsContextMenuVisibile(false);
     },
     
   },
   {
     name:"Lista de desejos",
-    clalBack:() =>{
+    callBack:() =>{
       setIsContextMenuVisibile(false);
     },
   },
   {
     name:"Gerir listagens",
-    clalBack:() =>{
+    callBack:() =>{
       setIsContextMenuVisibile(false);
     },
   },
   {
     name:"Ajuda",
-    clalBack:() =>{
+    callBack:() =>{
       setIsContextMenuVisibile(false);
     },
   },
   {
     name:"Sair",
-    clalBack:() =>{
+    callBack:() =>{
       setUserInfo(null)
       setIsContextMenuVisibile(false);
       localStorage.clear();

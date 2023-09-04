@@ -42,7 +42,6 @@ export const me = async () => {
     const result = await post(createUrl("/api/check-user"),{email}).catch(
         () => null
         )
-        console.log(result);
         if (!result) return false;
         return true;
     
