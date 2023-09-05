@@ -28,7 +28,10 @@ const page = () => {
     </header>
     {getComponent()}
     <footer className={`flex items-center px-20 pb-4 border-t-4 border-t-gray-300`}>
-
+          <button className="bg-airbnb-gradient py-3 mt-5 px-5 text-while 
+          text-base font-medium rounded-md cursor-pointer">
+            Começar
+          </button>
     </footer>
   </div>
   );

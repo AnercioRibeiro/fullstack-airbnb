@@ -3,8 +3,7 @@ import React from "react";
 
 const Overview = () => {
 
-
-  const mainTitle = "É fácil começar no airbnb";
+  const mainTitle = "É fácil começar no AirBnb";
   const data = [
     {
       title : "Detalhes do seu imóvel.",
@@ -26,17 +25,16 @@ const Overview = () => {
   <div className="flex h-full justify-between items-center px-32 gap-20">
     <div>
       <strong>
-        <h3 className="text-5xl leading-normal tex-airbnb-light-black">
+        <h3 className="text-5xl leading-normal text-airbnb-light-black">
           {mainTitle}
         </h3>
-
       </strong>
     </div>
     <ul className="flex flex-col gap-16">
       {
         data.map(({description,title,image}, index) => (
         <li key={title} 
-        className="flex items-center jsutify-start gap-6">
+        className="flex items-center justify-start gap-6">
           <strong className="
           text-2xl pt-5 text-airbnb-light-black">
             <h3>{index+1}</h3>
