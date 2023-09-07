@@ -1,6 +1,9 @@
 "use client"
-import AirBnbLogoShort from "../../svg/airbnb-logo-short"
-import Overview from "../../components/process/Overview"
+import ListingPlaceType from "../../components/process/ListingPlaceType";
+import AirBnbLogoShort from "../../svg/airbnb-logo-short";
+import ListingTypeSelector from "../../components/process/ListingTypeSelector";
+import StepOneStarter from "../../components/process/StepOneStarter";
+import Overview from "../../components/process/Overview";
 import React, { useState } from "react";
 const page = () => {
 
@@ -9,7 +12,20 @@ const page = () => {
     switch (step) {
       case 0:
         return <Overview/>;
+      case 1:
+        return <StepOneStarter/>;
+      case 2:
+        return <ListingTypeSelector/>;
+      case 3:
+        return <ListingPlaceType/>
     }
+  };
+
+  const handleNext = () => {
+    setStep(step+1)
+  };
+  const handlePrevious = () => {
+    setStep(step-1)
   };
 
   return (
@@ -27,11 +43,29 @@ const page = () => {
       )}
     </header>
     {getComponent()}
-    <footer className={`flex items-center px-20 pb-4 border-t-4 border-t-gray-300`}>
-          <button className="bg-airbnb-gradient py-3 mt-5 px-5 text-while 
-          text-base font-medium rounded-md cursor-pointer">
-            Começar
+    <footer className={`flex items-center px-20 pb-4 border-t-4 border-t-gray-300 ${step>0 ? "justify-between":"justify-end"}`}
+    >
+      {
+        step>=1 && (
+          <button className="py-3 mt-5 px-10 text-airbnb-light-black underline hover:bg-gray-200 
+          text-base font-medium rounded-md cursor-pointer"
+          onClick={handlePrevious}>
+            Voltar
           </button>
+        )}
+        {
+          step !==0 ?
+         ( <button className="bg-[#222222] py-3 mt-5 px-5 text-white 
+          text-base font-medium rounded-md cursor-pointer"
+          onClick={handleNext}>
+            Próximo
+          </button> ) : (
+           <button className="bg-airbnb-gradient py-3 mt-5 px-5 text-white 
+           text-base font-medium rounded-md cursor-pointer"
+           onClick={handleNext}>
+             Começar
+           </button>)}
+         
     </footer>
   </div>
   );
