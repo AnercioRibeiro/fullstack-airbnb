@@ -35,7 +35,7 @@ const App = (): React.ReactElement => {
       });
   }, []);
   if (!dataProvider) {
-    return <div>Loading</div>;
+    return <div>Carregando...</div>;
   }
   return (
     <div className="App">
