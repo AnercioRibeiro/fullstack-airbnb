@@ -2,6 +2,7 @@
 import ListingPlaceType from "../../components/process/ListingPlaceType";
 import AirBnbLogoShort from "../../svg/airbnb-logo-short";
 import ListingTypeSelector from "../../components/process/ListingTypeSelector";
+import PlaceLocation from "../../components/process/PlaceLocation";
 import StepOneStarter from "../../components/process/StepOneStarter";
 import Overview from "../../components/process/Overview";
 import React, { useState } from "react";
@@ -17,7 +18,9 @@ const page = () => {
       case 2:
         return <ListingTypeSelector/>;
       case 3:
-        return <ListingPlaceType/>
+        return <ListingPlaceType/>;
+      case 4:
+        return <PlaceLocation />;
     }
   };
 

@@ -25,22 +25,36 @@ const ListingPlaceType = () => {
       svg: <SharedRoom/>
     },
   ]
-  return <div className="flex items-center justify-center flex-col h-full gap-10">
+  return (
+  <div className="flex items-center justify-center flex-col h-full gap-10">
     <h2 className="font-semibold text-4xl">
       Como descreveria o seu imóvel?
     </h2>
     <ul className="flex flex-col gap-5 w-[800px]">
-    {data.map((place)=> <li key={place.title}>
+    {data.map((place)=> (
+    <li key={place.title} 
+    className={`flex border font-semibold 
+    border-gray-300 rounded-md p-7 justify-between
+    hover:border-gray-500 transition-all duration-300 cursor-pointer
+    ${
+      place.title === placeType?.title && 
+      "border-gray-950 bg-slate-100"
+    }
+    `}
+    onClick={()=> setPlaceType(place)} 
+    >
       <div>
-        <h4 className="font-semibold">{place.title}</h4>
+        <h3 className="font-semibold">{place.title}</h3>
         <p>{place.subTitle}</p>
       </div>
       {place.svg}
     </li>
-    )}
+    ))}
 
     </ul>
-  </div>;
-};
+  </div>
+  );
+}
+
 
 export default ListingPlaceType;
